@@ -1,0 +1,26 @@
+[project]
+name = "fcp-marker-trimmer"
+version = "0.0.1"
+authors = [
+  { name="Sugil Steve Lee", email="sugilmath@gmail.com" },
+]
+description = "Removes Markers placed outside asset-clip range for performance optimization on larger Projects."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+	"fcp-math>=0.0.1",
+	"fcp-io>=0.0.1",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/leesugil/fcp-marker-trimmer"
+Issues = "https://github.com/leesugil/fcp-marker-trimmer/issues"
+
+[project.scripts]
+fcp-trim-marker = "fcp_marker_trimmer.cli:main"
