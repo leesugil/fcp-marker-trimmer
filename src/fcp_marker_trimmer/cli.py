@@ -4,6 +4,7 @@ import argparse
 import xml.etree.ElementTree as ET
 
 from fcp_io import fcpxml_io
+from . import trim
 
 def main():
 
@@ -27,7 +28,7 @@ def main():
     # '100/6000s'
     fps = fcpxml_io.get_fps(root)
 
-    trim_markers_in_spine(root=root, fps=fps, debug=args.debug):
+    trim.trim_markers_in_spine(root=root, fps=fps, debug=args.debug)
 
     fcpxml_io.save_with_affix(tree=tree, src_filepath=xf, affix=args.affix)
 
