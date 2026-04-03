@@ -22,9 +22,9 @@ def trim_markers(clip, fps='100/6000s', debug=False):
     if not start:
         num, denom = arithmetic.unfrac(fps) 
         start = f'0/{denom}s'
-    if debug:
-        print(f"trim_markers start: {start}, duration: {clip.get('duration')}")
     end = arithmetic.fcpsec_add(a=start, b=clip.get('duration'), fps=fps)
+    if debug:
+        print(f"trim_markers start: {start}, end: {end}, duration: {clip.get('duration')}")
 
     markers = get_all_markers(clip)
     for m in markers:
@@ -38,8 +38,7 @@ def trim_markers_in_spine(root, fps='100/6000s', debug=False):
     """
     Assumes the root already has Project and its spine defined in fcpxml
     """
-    spine = fcpxml_io.get_spine(root)
-    asset_clips = spine.findall('asset-clip')
+    asset_clips = get_all_spine_asset_clips(root=root)
     
     for c in asset_clips:
         trim_markers(clip=c, fps=fps, debug=debug)

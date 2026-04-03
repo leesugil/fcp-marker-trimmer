@@ -19,10 +19,7 @@ def main():
     args = parser.parse_args()
 
     xf = fcpxml_io.clean_filepath(args.fcpxml_filepath)
-    vf = fcpxml_io.clean_filepath(fcpxml_io.parse_fcpxml_filepath(xf))
     print(f"fcpxml file: {xf}")
-    print(f"video file: {vf}")
-
     # <fcpxml>
     tree, root = fcpxml_io.get_fcpxml(xf)
     # '100/6000s'
